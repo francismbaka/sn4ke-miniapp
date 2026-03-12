@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #060610;
+  --green: #00ff41;
+  --green-dim: #00662a;
+  --green-glow: rgba(0,255,65,0.25);
+  --blue: #0052ff;
+  --blue-bright: #4d8bff;
+  --blue-glow: rgba(0,82,255,0.4);
+  --red: #ff2d55;
+  --yellow: #ffd700;
+  --orange: #ff9900;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  font-family: 'Press Start 2P', monospace;
+  color: var(--green);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* CRT scanlines overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 2px,
+    rgba(0,255,65,0.02) 2px, rgba(0,255,65,0.02) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
